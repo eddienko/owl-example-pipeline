@@ -1,0 +1,14 @@
+# Version of the configuration file
+version: 1
+
+# Name of the pipeline
+name: example
+
+# Pipeline arguments
+datalen: 100
+
+# Resources requested
+resources:
+  threads: 10
+  workers: 1
+  memory: 1
