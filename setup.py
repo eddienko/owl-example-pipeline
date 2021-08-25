@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 readme = ""
 
-requirements = ["dask", "distributed", "voluptuous", "owl-pipeline-develop"]
+requirements = ["dask", "distributed", "voluptuous"]
 
 setup_requirements = ["pytest-runner", "flake8"]
 

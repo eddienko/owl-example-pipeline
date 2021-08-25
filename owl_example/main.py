@@ -1,10 +1,12 @@
+import logging
 import random
 import time
 from pathlib import Path
 
 from dask import delayed
-from owl_dev import pipeline
-from owl_dev.logging import logger
+
+
+logger = logging.getLogger("owl.daemon.pipeline")
 
 
 @delayed
@@ -26,7 +28,6 @@ def add(x, y):  # pragma: no cover
     return x + y
 
 
-@pipeline
 def main(*, datalen: int, output_dir: Path=None) -> int:  # pragma: no cover
     """Example pipeline.
 
