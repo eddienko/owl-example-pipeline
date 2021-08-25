@@ -7,13 +7,13 @@ from owl_example_pipeline.schema import schema
 
 
 def test_schema():
-    config = {"datalen": 100, "cpu_bound": False, "output_dir": "/tmp"}
+    config = {"datalen": 100}
     schema(config)
 
 
 @mock.patch("time.sleep", return_value=None)
 def test_main(psleep):
-    config = {"datalen": 10, "cpu_bound": False, "output_dir": "/tmp"}
+    config = {"datalen": 10}
     main.config = {}
     res = main(**config)
     assert res == 120
