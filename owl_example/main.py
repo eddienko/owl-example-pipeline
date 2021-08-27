@@ -1,12 +1,10 @@
-import logging
 import random
 import time
 from pathlib import Path
 
 from dask import delayed
-
-
-logger = logging.getLogger("owl.daemon.pipeline")
+from owl_dev import pipeline
+from owl_dev.logging import logger
 
 
 @delayed
@@ -23,12 +21,12 @@ def double(x):  # pragma: no cover
 
 @delayed
 def add(x, y):  # pragma: no cover
-    logger.info("Adding....")
     time.sleep(random.random() * 10)
     return x + y
 
 
-def main(*, datalen: int) -> int:  # pragma: no cover
+@pipeline
+def main(*, datalen: int, output: Path = None) -> int:  # pragma: no cover
     """Example pipeline.
 
     The pipeline constructs a list of ``datalen`` elements and
@@ -38,6 +36,8 @@ def main(*, datalen: int) -> int:  # pragma: no cover
     ----------
     datalen
         Length of list to use.
+    output
+        Output directory
 
     Returns
     -------
@@ -46,13 +46,13 @@ def main(*, datalen: int) -> int:  # pragma: no cover
 
     logger.info("Computing...")
 
-    output = []
+    acc = []
     for x in range(datalen):
         a = inc(x)
         b = double(x)
         c = add(a, b)
-        output.append(c)
+        acc.append(c)
 
-    total = delayed(sum)(output)
+    total = delayed(sum)(acc)
     return total.compute()
 

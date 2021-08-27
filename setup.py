@@ -1,8 +1,9 @@
 from setuptools import find_packages, setup
 
-readme = ""
+with open("README.rst") as readme_file:
+    readme = readme_file.read()
 
-requirements = ["dask", "distributed", "voluptuous"]
+requirements = ["dask", "distributed", "voluptuous", "owl-pipeline-develop"]
 
 setup_requirements = ["pytest-runner", "flake8"]
 
