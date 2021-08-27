@@ -3,7 +3,12 @@ from setuptools import find_packages, setup
 with open("README.rst") as readme_file:
     readme = readme_file.read()
 
-requirements = ["dask", "distributed", "voluptuous", "owl-pipeline-develop"]
+requirements = [
+    "dask",
+    "distributed",
+    "voluptuous",
+    "owl-pipeline-develop @ git+https://github.com/eddienko/owl-pipeline-develop.git@devel#egg=owl-pipeline-develop",
+]
 
 setup_requirements = ["pytest-runner", "flake8"]
 
