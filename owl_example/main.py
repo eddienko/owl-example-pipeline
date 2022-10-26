@@ -26,7 +26,7 @@ def add(x, y):  # pragma: no cover
 
 
 @pipeline
-def main(*, datalen: int, input_path: Path: None, output_path: Path = None) -> int:  # pragma: no cover
+def main(*, datalen: int, input_path: Path = None, output_path: Path = None) -> int:  # pragma: no cover
     """Example pipeline.
 
     The pipeline constructs a list of ``datalen`` elements and
