@@ -1,14 +1,12 @@
 # Version of the configuration file
-version: 1
-
-sig:extra_pip_packages: git+https://github.com/eddienko/owl-example-pipeline.git
-sig:active: true
+version: 2
 
 # Name of the pipeline
 name: example
 
 # Output directory (optional)
-# output: /storage/user/runs/
+# input_path: /storage/incoming/myData
+# output_path: /storage/processed/myData
 
 # Pipeline arguments
 datalen: 100
